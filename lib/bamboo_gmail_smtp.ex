@@ -1,4 +1,5 @@
 defmodule BambooGmailSmtp do
+  import Bamboo.Email
   @moduledoc """
   Documentation for `BambooGmailSmtp`.
   """
@@ -13,11 +14,10 @@ defmodule BambooGmailSmtp do
     )
   end
 
-      iex> BambooGmailSmtp.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def send_welcome_email do
+    # Create your email
+    welcome_email()
+    # Send your email
+    |> BambooGmailSmtp.Mailer.deliver_now!()
   end
 end
